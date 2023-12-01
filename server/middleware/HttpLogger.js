@@ -18,11 +18,7 @@ const LogRequest = (req, res, next) => {
         const durationInMs = duration[0] * 1000 + duration[1] / 1e6;
 
         Logger.http({
-            message: `Response | Method: ${req.method} | URL: ${
-                req.originalUrl
-            } | Status: ${res.statusCode} | Duration: ${durationInMs.toFixed(
-                2
-            )} ms`,
+            message: `Response | Method: ${req.method} | URL: ${req.originalUrl} | Status: ${res.statusCode} | Duration: ${durationInMs.toFixed(2)} ms`,
             metadata: {
                 status: res.statusCode,
                 headers: res.getHeaders(),
