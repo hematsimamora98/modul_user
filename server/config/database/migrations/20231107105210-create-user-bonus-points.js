@@ -12,7 +12,7 @@ module.exports = {
             ubpo_user_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: 'users',
+                    model: 'Users',
                     key: 'user_id',
                 },
             },

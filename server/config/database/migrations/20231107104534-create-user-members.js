@@ -7,14 +7,14 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
                 references: {
-                    model: 'users',
+                    model: 'Users',
                     key: 'user_id',
                 },
             },
             usme_memb_name: {
                 type: Sequelize.STRING(15),
                 references: {
-                    model: 'members',
+                    model: 'Members',
                     key: 'memb_name',
                 },
             },
