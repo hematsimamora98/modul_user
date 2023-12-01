@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const Logger = require('../helpers/logger');
+const Logger = require('../../helpers/logger');
 
 const {
     DATABASE_USERNAME,

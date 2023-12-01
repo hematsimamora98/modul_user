@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const Logger = require('./helpers/logger');
 const routes = require('./routes/main');
-const { DBConnection } = require('./config/db-config');
+const { DBConnection } = require('./config/database/db-config');
 const { APP_HOST, APP_PORT, APP_NAME } = process.env;
 
 
