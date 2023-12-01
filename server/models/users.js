@@ -29,6 +29,7 @@ const Users = sequelize.define(
         },
         user_modified_date: {
             type: DataTypes.DATE,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         },
         created_at: {
             allowNull: false,
