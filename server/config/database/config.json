@@ -2,9 +2,9 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "testing_modul_user",
+    "database": "modul_user",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",
