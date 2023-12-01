@@ -27,14 +27,14 @@ module.exports = {
       uspro_addr_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'address',
+          model: 'Address',
           key: 'addr_id'
         }
       },
       uspro_user_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'users',
+          model: 'Users',
           key: 'user_id'
         }
       },

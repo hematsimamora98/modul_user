@@ -1,31 +1,49 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class user_profiles extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/database/db-config');
+
+const UserProfiles = sequelize.define(
+    'UserProfiles',
+    {
+        uspro_id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false,
+        },
+        uspro_national_id: {
+            type: DataTypes.STRING(20),
+        },
+        uspro_birt_date: {
+            type: DataTypes.DATE,
+        },
+        uspro_job_title: {
+            type: DataTypes.STRING(50),
+        },
+        uspro_marital_status: {
+            type: DataTypes.CHAR,
+        },
+        uspro_gender: {
+            type: DataTypes.CHAR,
+        },
+        uspro_addr_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Address',
+                key: 'addr_id',
+            },
+        },
+        uspro_user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Users',
+                key: 'user_id',
+            },
+        },
+    },
+    {
+        tableName: 'user_profiles',
+        timestamps: false,
     }
-  }
-  user_profiles.init({
-    uspro_id: DataTypes.INTEGER,
-    uspro_national_id: DataTypes.STRING,
-    uspro_birt_date: DataTypes.DATE,
-    uspro_job_title: DataTypes.STRING,
-    uspro_marital_status: DataTypes.STRING,
-    uspro_gender: DataTypes.STRING,
-    uspro_addr_id: DataTypes.INTEGER,
-    uspro_user_id: DataTypes.INTEGER,
-    uspro_addr_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'user_profiles',
-  });
-  return user_profiles;
-};
+);
+
+module.exports = UserProfiles;

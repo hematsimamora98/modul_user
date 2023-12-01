@@ -1,27 +1,36 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class user_bonus_points extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/database/db-config');
+
+const UserBonusPoints = sequelize.define(
+    'UserBonusPoints',
+    {
+        ubpo_id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        ubpo_user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Users',
+                key: 'user_id',
+            },
+        },
+        ubpo_total_points: {
+            type: DataTypes.SMALLINT,
+        },
+        ubpo_bonus_type: {
+            type: DataTypes.CHAR,
+        },
+        ubpo_created_on: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        },
+    },
+    {
+        tableName: 'user_bonus_points',
+        timestamps: false,
     }
-  }
-  user_bonus_points.init({
-    ubpo_id: DataTypes.INTEGER,
-    ubpo_user_id: DataTypes.INTEGER,
-    ubpo_total_points: DataTypes.SMALLINT,
-    ubpo_bonus_type: DataTypes.STRING,
-    ubpo_created_on: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'user_bonus_points',
-  });
-  return user_bonus_points;
-};
+);
+
+module.exports = UserBonusPoints;
