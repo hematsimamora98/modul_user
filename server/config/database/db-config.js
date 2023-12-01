@@ -16,8 +16,8 @@ const sequelize = new Sequelize({
     database: DATABASE_NAME,
     host: DATABASE_HOST,
     port: DATABASE_PORT,
-    schema: DATABASE_SCHEMA,
-    dialect: 'postgres',
+    // schema: DATABASE_SCHEMA,
+    dialect: 'mysql',
     logging: true,
 });
 

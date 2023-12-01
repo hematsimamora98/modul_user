@@ -20,7 +20,7 @@ const UserPassword = sequelize.define(
         },
     },
     {
-        tableName: 'user_password',
+        tableName: 'user_passwords',
         timestamps: false,
     }
 );
